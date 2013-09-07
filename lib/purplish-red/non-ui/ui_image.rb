@@ -225,7 +225,11 @@ class UIImage
 
 
   def show_globally
-    btn = self.to_btn
+    img = self
+    if img.width > UIScreen.mainScreen.bounds.size.width || img.height > UIScreen.mainScreen.bounds.size.height
+      img = img.scale_aspect_to_size(UIScreen.mainScreen.bounds.size)
+    end
+    btn = img.to_btn
     btn.addTarget(btn, action:'removeFromSuperview', forControlEvents:UIControlEventTouchUpInside)
     parent = App.delegate.window
     btn.backgroundColor = UIColor.redColor
