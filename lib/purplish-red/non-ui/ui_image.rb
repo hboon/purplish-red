@@ -237,4 +237,30 @@ class UIImage
     btn.center_y = parent.height/2
     parent.addSubview(btn)
   end
+
+
+  def save_to_album_named(album_name, meta_data:meta_data)
+    if ALAssetsLibrary.authorizationStatus == ALAuthorizationStatusRestricted || ALAssetsLibrary.authorizationStatus == ALAuthorizationStatusDenied
+      UIImageWriteToSavedPhotosAlbum(self, nil, nil, nil)
+    else
+      ALAssetsLibrary.new.album_name(album_name) do |library, album|
+        p = proc {|assetURL, error|
+          if error.nil?
+            library.assetForURL(assetURL, resultBlock:proc {|asset|
+              album.addAsset(asset)
+            }, failureBlock:proc {|error|
+              #p "failed to retrieve image asset. Error: #{error.localizedDescription}"
+            })
+          else
+            #p "saved image failed. Error code: #{error.code} desc: #{error.localizedDescription}"
+          end
+        }
+        if meta_data.nil?
+          library.writeImageToSavedPhotosAlbum(self.CGImage, orientation:imageOrientation, completionBlock:p)
+        else
+          library.writeImageToSavedPhotosAlbum(self.CGImage, metadata:meta_data, completionBlock:p)
+        end
+      end
+    end
+  end
 end
