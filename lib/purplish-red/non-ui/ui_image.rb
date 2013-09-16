@@ -247,7 +247,12 @@ class UIImage
         p = proc {|assetURL, error|
           if error.nil?
             library.assetForURL(assetURL, resultBlock:proc {|asset|
-              album.addAsset(asset)
+              #Might fail with no group (album) found. Perhaps a shared photostream has the same album name, we wouldn't be able to write to it, yet can't create an album of the same name
+              if album.nil?
+                UIImageWriteToSavedPhotosAlbum(self, nil, nil, nil)
+              else
+                album.addAsset(asset)
+              end
             }, failureBlock:proc {|error|
               #p "failed to retrieve image asset. Error: #{error.localizedDescription}"
             })
