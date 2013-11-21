@@ -272,11 +272,7 @@ class UIImage
 
   #rect must be in pts, not px
   def cut_image_with_rect(rect)
-    if rect.is_a? Array
-      rect = [[rect[0][0]*scale, rect[0][1]*scale], [rect[1][0]*scale, rect[1][1]*scale]]
-    else
-      rect = [[rect.origin.x*scale, rect.origin.y*scale], [rect.size.width*scale, rect.size.height*scale]]
-    end
+    rect = rect.to_rect.scale(scale)
     img_ref = CGImageCreateWithImageInRect(self.CGImage, rect)
     img = UIImage.imageWithCGImage(img_ref, scale:UIScreen.mainScreen.scale, orientation:UIImageOrientationUp)
     img
