@@ -25,7 +25,7 @@ class NSDate
     when 4, 6, 9, 11
       return 30
     when 2
-      return is_leap_year(year)? 29: 28
+      return is_leap_year?(year)? 29: 28
     else
       #NSAssert(NO, @" Invalid month %d", month)
       return 0
