@@ -48,6 +48,7 @@ class UIImage
 
 
   def scale_to_size(size)
+    size = size.to_size
     colorSpace = CGColorSpaceCreateDeviceRGB()
 
     context = CGBitmapContextCreate(nil, size.width*scale, size.height*scale, 8, size.width*4*scale, colorSpace, KCGImageAlphaPremultipliedLast)
@@ -60,6 +61,7 @@ class UIImage
 
   #Preserve aspect ratio while scaling. E.g if aSize = (612,612), the longer side will be 612 and the shorter side will be at most 612
   def scale_aspect_to_maximum_size(aSize)
+    aSize = aSize.to_size
     if aSize.width/aSize.height > self.size.width/self.size.height
       s = CGSize.new((aSize.height/size.height * size.width).to_i, aSize.height)
     else
@@ -72,6 +74,7 @@ class UIImage
 
   #Preserve aspect ratio while scaling. E.g if aSize = (612,612), the shorter side will be 612 and the shorter side will be at least 612
   def scale_aspect_to_minimum_size(aSize)
+    aSize = aSize.to_size
     if aSize.width/aSize.height > self.size.width/self.size.height
       s = CGSize.new(aSize.width, (aSize.width/size.width * size.height).to_i)
     else
@@ -84,6 +87,7 @@ class UIImage
 
   #Preserve aspect ratio while scaling to fill. Part of the content may be clipped
   def scale_aspect_to_fill_size(aSize)
+    aSize = aSize.to_size
     if aSize.width/aSize.height > size.width/size.height
       croppedImg = image_by_cropping_to_center_size(CGSize.new(size.width, (size.width/aSize.width * aSize.height).to_i))
     else
@@ -106,6 +110,7 @@ class UIImage
 
 
   def image_by_cropping_to_center_size(aSize)
+    aSize = aSize.to_size
     if aSize.width/aSize.height > size.width/size.height
       return image_by_cropping_to_rect(CGRect.new([0, (size.height-aSize.height)/2], [aSize.width, aSize.height]))
     else

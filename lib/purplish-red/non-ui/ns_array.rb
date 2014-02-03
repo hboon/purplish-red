@@ -2,6 +2,16 @@ class NSArray
   def to_rect
     CGRect.new([self[0][0], self[0][1]], [self[1][0], self[1][1]])
   end
+
+
+  def to_size
+    CGSize.new(self[0], self[1])
+  end
+
+
+  def to_set
+    NSSet.setWithArray(self)
+  end
 end
 
 
@@ -85,3 +95,9 @@ class CGRect
   end
 end
 
+
+class CGSize
+  def to_size
+    self
+  end
+end
