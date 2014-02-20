@@ -179,4 +179,10 @@ class UIView
       self.left = pt.x
       self.top = pt.y
   end
+
+
+  def <<(v)
+    addSubview(v)
+    self
+  end
 end
