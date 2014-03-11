@@ -12,6 +12,11 @@ class NSArray
   def to_set
     NSSet.setWithArray(self)
   end
+
+
+  def to_index_path
+    NSIndexPath.indexPathForRow(self[0], inSection:self[1])
+  end
 end
 
 
@@ -98,6 +103,13 @@ end
 
 class CGSize
   def to_size
+    self
+  end
+end
+
+
+class NSIndexPath
+  def to_index_path
     self
   end
 end
