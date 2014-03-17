@@ -54,4 +54,15 @@ class UIColor
     comps = components
     UIColor.alloc.initWithRed(comps[0], green:comps[1], blue:comps[2], alpha:a)
   end
+
+
+  def to_single_pt_image
+    UIGraphicsBeginImageContext(CGSizeMake(1, 1))
+    context = UIGraphicsGetCurrentContext()
+    self.set
+    CGContextFillRect(context, CGRectMake(0, 0, 1, 1))
+    result = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    result
+  end
 end
