@@ -98,6 +98,26 @@ class CGRect
   def center_y=(center_y)
     self.top = center_y-size.height/2
   end
+
+
+  def width
+     size.width
+  end
+
+
+  def width=(w)
+    size.width = w
+  end
+
+
+  def height
+     size.height
+  end
+
+
+  def height=(h)
+    size.height = h
+  end
 end
 
 
