@@ -4,9 +4,9 @@ class UIView
     frame.origin.x
   end
 
-  
+
   def left=(x)
-    f = self.frame
+    f = frame
     f.origin.x = x
     self.frame = f
   end
@@ -17,7 +17,7 @@ class UIView
 
 
   def top=(y)
-    f = self.frame
+    f = frame
     f.origin.y = y
     self.frame = f
   end
@@ -29,7 +29,7 @@ class UIView
 
 
   def right=(right)
-    f = self.frame
+    f = frame
     f.origin.x = right - f.size.width
     self.frame = f
   end
@@ -40,7 +40,7 @@ class UIView
 
 
   def bottom=(bottom)
-    f = self.frame
+    f = frame
     f.origin.y = bottom - f.size.height
     self.frame = f
   end
@@ -52,7 +52,7 @@ class UIView
 
 
   def center_x=(center_x)
-    self.center = [center_x, self.center.y]
+    self.center = [center_x, center.y]
   end
 
 
@@ -62,43 +62,43 @@ class UIView
 
 
   def center_y=(center_y)
-    self.center = [self.center.x, center_y]
+    self.center = [center.x, center_y]
   end
 
 
   def width
-     frame.size.width
+    frame.size.width
   end
 
 
   def width=(width)
-    f = self.frame
+    f = frame
     f.size.width = width
     self.frame = f
   end
 
 
   def height
-     frame.size.height
+    frame.size.height
   end
 
 
   def height=(height)
-    f = self.frame
+    f = frame
     f.size.height = height
     self.frame = f
   end
 
 
   def size_width_to_fit
-    h = self.height
+    h = height
     sizeToFit
     self.height = h
   end
 
 
   def size_height_to_fit
-    w = self.width
+    w = width
     #Otherwise it doesn't expand short UILabel when it's too short to fit longer text
     self.height = 1000
     sizeToFit
@@ -107,14 +107,14 @@ class UIView
 
 
   def size_width_to_fit_align_right
-    x = self.right
+    x = right
     size_width_to_fit
     self.right = x
   end
 
 
   def size_height_to_fit_align_bottom
-    y = self.bottom
+    y = bottom
     size_height_to_fit
     self.bottom = y
   end
@@ -123,7 +123,7 @@ class UIView
   def size_width_to_fit_max(f)
     size_width_to_fit
 
-    if self.width > f
+    if width > f
       self.width = f
     end
   end
@@ -132,7 +132,7 @@ class UIView
   def size_width_to_fit_min(f)
     size_width_to_fit
 
-    if self.width < f
+    if width < f
       self.width = f
     end
   end
@@ -141,24 +141,23 @@ class UIView
   def size_height_to_fit_max(f)
     size_height_to_fit
 
-    if self.height > f
+    if height > f
       self.height = f
     end
   end
 
 
-
   def size_height_to_fit_min(f)
     size_height_to_fit
 
-    if self.height < f
+    if height < f
       self.height = f
     end
   end
 
 
   def origin_relative_to_superview(v)
-    sup = self.superview
+    sup = superview
     offset = CGPointZero
 
     #if ([sup isKindOfClass:[UIScrollView class]]) {
@@ -175,9 +174,9 @@ class UIView
 
 
   def move_origin_relative_to_superview(v)
-      pt = self.origin_relative_to_superview(v)
-      self.left = pt.x
-      self.top = pt.y
+    pt = origin_relative_to_superview(v)
+    self.left = pt.x
+    self.top = pt.y
   end
 
 
