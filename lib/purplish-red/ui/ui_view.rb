@@ -184,4 +184,9 @@ class UIView
     addSubview(v)
     self
   end
+
+
+  def sv
+    superview
+  end
 end
