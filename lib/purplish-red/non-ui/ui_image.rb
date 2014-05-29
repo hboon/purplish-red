@@ -41,13 +41,12 @@ class UIImage
     scale_aspect_to_maximum_size(size)
   end
 
-  def scale_to_size(size)
-    size = size.to_size
+  def scale_to_size(s)
+    s = s.to_size
     color_space = CGColorSpaceCreateDeviceRGB()
-
-    context = CGBitmapContextCreate(nil, size.width*scale, size.height*scale, 8, size.width*4*scale, color_space, KCGImageAlphaPremultipliedLast)
+    context = CGBitmapContextCreate(nil, s.width*scale, s.height*scale, 8, s.width*4*scale, color_space, KCGImageAlphaPremultipliedLast)
     img_ref = self.CGImage
-    CGContextDrawImage(context, CGRectMake(0, 0, size.width*scale, size.height*scale), img_ref)
+    CGContextDrawImage(context, CGRectMake(0, 0, s.width*scale, s.height*scale), img_ref)
     copy = CGBitmapContextCreateImage(context)
     UIImage.imageWithCGImage(copy, scale:scale, orientation:imageOrientation)
   end
