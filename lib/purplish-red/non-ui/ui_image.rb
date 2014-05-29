@@ -76,9 +76,9 @@ class UIImage
   #aRect is assumed to be in the "same scale" as self
   def image_by_cropping_to_rect(aRect)
     if aRect.is_a? CGRect
-      cropped = CGImageCreateWithImageInRect(CGImage, [[aRect.origin.x*scale, aRect.origin.y*scale], [aRect.size.width*scale, aRect.size.height*scale]])
+      cropped = CGImageCreateWithImageInRect(self.CGImage, [[aRect.origin.x*scale, aRect.origin.y*scale], [aRect.size.width*scale, aRect.size.height*scale]])
     else
-      cropped = CGImageCreateWithImageInRect(CGImage, [[aRect[0][0]*scale, aRect[0][1]*scale], [aRect[1][0]*scale, aRect[1][1]*scale]])
+      cropped = CGImageCreateWithImageInRect(self.CGImage, [[aRect[0][0]*scale, aRect[0][1]*scale], [aRect[1][0]*scale, aRect[1][1]*scale]])
     end
     UIImage.imageWithCGImage(cropped, scale:scale, orientation:imageOrientation)
   end
@@ -120,7 +120,7 @@ class UIImage
       p 'Not front camera photo'
     end
 
-    img_ref = CGImage
+    img_ref = self.CGImage
     width = CGImageGetWidth(img_ref)
     height = CGImageGetHeight(img_ref)
     transform = CGAffineTransformIdentity
