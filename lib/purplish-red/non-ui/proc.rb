@@ -9,6 +9,6 @@ class Proc
       return if task_id == UIBackgroundTaskInvalid
       UIApplication.sharedApplication.endBackgroundTask(task_id)
     }
-    self.call(end_task_block)
+    call(end_task_block)
   end
 end

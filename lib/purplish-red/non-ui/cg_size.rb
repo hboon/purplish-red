@@ -1,20 +1,19 @@
 class CGSize
-  def scale_to_fit(aSize)
-    aSize = aSize.to_size
-    if aSize.width/aSize.height > width/height
-      [aSize.height/height * width, aSize.height]
+  def scale_to_fit(s)
+    s = s.to_size
+    if s.width/s.height > width/height
+      [s.height/height * width, s.height]
     else
-      [aSize.width, aSize.width/width * height]
+      [s.width, s.width/width * height]
     end
   end
 
-
-  def scale_to_fill(aSize)
-    aSize = aSize.to_size
-    if aSize.width/aSize.height > width/height
-      [aSize.width, aSize.width/width * height]
+  def scale_to_fill(s)
+    s = s.to_size
+    if s.width/s.height > width/height
+      [s.width, s.width/width * height]
     else
-      [aSize.height/height * width, aSize.height]
+      [s.height/height * width, s.height]
     end
   end
 end

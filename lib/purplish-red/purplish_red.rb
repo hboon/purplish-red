@@ -3,7 +3,6 @@ module PurplishRed
     @app_resumed = b
   end
 
-
   def self.app_resumed?
     @app_resumed
   end

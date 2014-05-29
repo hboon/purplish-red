@@ -1,8 +1,8 @@
-#rubymotionbug – http://hipbyte.myjetbrains.com/youtrack/issue/RM-473
+#rubymotionbug - http://hipbyte.myjetbrains.com/youtrack/issue/RM-473
 module CGPointExt
-  def /(f)
-    self.x /= f
-    self.y /= f
+  def /(other)
+    self.x /= other
+    self.y /= other
     self
   end
 end

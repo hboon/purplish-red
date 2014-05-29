@@ -14,7 +14,6 @@ class MFMailComposeViewController
   end
 end
 
-
 module MOCommon
   class MailComposerDelegate
     attr_accessor :on_finish

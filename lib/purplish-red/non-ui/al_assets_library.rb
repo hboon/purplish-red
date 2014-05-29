@@ -22,7 +22,6 @@ class ALAssetsLibrary
     })
   end
 
-
   def create_album(album_name, &block)
     addAssetsGroupAlbumWithName(album_name, resultBlock:proc {|group|
       block.call(self, group)

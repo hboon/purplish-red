@@ -9,13 +9,11 @@ class NSDate
     NSCalendar.currentCalendar.dateFromComponents(dc)
   end
 
-
   def self.is_leap_year?(year)
     return false if year % 4 != 0
     return true if year % 100 != 0
-    return year % 400 == 0
+    year % 400 == 0
   end
-
 
   #month is 1-12 representing Jan-Dec
   def self.days_in_month(month, year:year)
@@ -32,11 +30,9 @@ class NSDate
     end
   end
 
-
   def yesterday_exactly
-    self.dateByAddingTimeInterval(-60*60*24)
+    dateByAddingTimeInterval(-60*60*24)
   end
-
 
   #0h, 0m, 0s
   def yesterday
@@ -44,23 +40,18 @@ class NSDate
     NSDate.from_day_month_year(d_m_y[0], d_m_y[1], d_m_y[2])
   end
 
-
   def day_month_year
     components = NSCalendar.currentCalendar.components(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit, fromDate:self)
     [components.day, components.month, components.year]
   end
-
 
   def hour_minute_second
     components = NSCalendar.currentCalendar.components(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit, fromDate:self)
     [components.hour, components.minute, components.second]
   end
 
-
   def year_month_day_s
-    s = self.day_month_year
-    '%.4d%.2d%.2d' % [s[2], s[1], s[0]]
+    s = day_month_year
+    format('%.4d%.2d%.2d', s[2], s[1], s[0])
   end
-
-
 end

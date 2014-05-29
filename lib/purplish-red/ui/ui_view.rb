@@ -4,7 +4,6 @@ class UIView
     frame.origin.x
   end
 
-
   def left=(x)
     f = frame
     f.origin.x = x
@@ -15,18 +14,15 @@ class UIView
     frame.origin.y
   end
 
-
   def top=(y)
     f = frame
     f.origin.y = y
     self.frame = f
   end
 
-
   def right
     frame.origin.x + frame.size.width
   end
-
 
   def right=(right)
     f = frame
@@ -38,38 +34,31 @@ class UIView
     frame.origin.y + frame.size.height
   end
 
-
   def bottom=(bottom)
     f = frame
     f.origin.y = bottom - f.size.height
     self.frame = f
   end
 
-
   def center_x
     center.x
   end
-
 
   def center_x=(center_x)
     self.center = [center_x, center.y]
   end
 
-
   def center_y
     center.y
   end
-
 
   def center_y=(center_y)
     self.center = [center.x, center_y]
   end
 
-
   def width
     frame.size.width
   end
-
 
   def width=(width)
     f = frame
@@ -77,11 +66,9 @@ class UIView
     self.frame = f
   end
 
-
   def height
     frame.size.height
   end
-
 
   def height=(height)
     f = frame
@@ -89,13 +76,11 @@ class UIView
     self.frame = f
   end
 
-
   def size_width_to_fit
     h = height
     sizeToFit
     self.height = h
   end
-
 
   def size_height_to_fit
     w = width
@@ -105,13 +90,11 @@ class UIView
     self.width = w
   end
 
-
   def size_width_to_fit_align_right
     x = right
     size_width_to_fit
     self.right = x
   end
-
 
   def size_height_to_fit_align_bottom
     y = bottom
@@ -119,42 +102,25 @@ class UIView
     self.bottom = y
   end
 
-
   def size_width_to_fit_max(f)
     size_width_to_fit
-
-    if width > f
-      self.width = f
-    end
+    self.width = f if width > f
   end
-
 
   def size_width_to_fit_min(f)
     size_width_to_fit
-
-    if width < f
-      self.width = f
-    end
+    self.width = f if width < f
   end
-
 
   def size_height_to_fit_max(f)
     size_height_to_fit
-
-    if height > f
-      self.height = f
-    end
+    self.height = f if height > f
   end
-
 
   def size_height_to_fit_min(f)
     size_height_to_fit
-
-    if height < f
-      self.height = f
-    end
+    self.height = f if height < f
   end
-
 
   def origin_relative_to_superview(v)
     sup = superview
@@ -172,19 +138,16 @@ class UIView
     end
   end
 
-
   def move_origin_relative_to_superview(v)
     pt = origin_relative_to_superview(v)
     self.left = pt.x
     self.top = pt.y
   end
 
-
   def <<(v)
     addSubview(v)
     self
   end
-
 
   def sv
     superview
