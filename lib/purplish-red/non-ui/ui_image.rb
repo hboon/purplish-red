@@ -54,26 +54,12 @@ class UIImage
 
   #Preserve aspect ratio while scaling. E.g if s = (612,612), the longer side will be 612 and the shorter side will be at most 612
   def scale_aspect_to_maximum_size(s)
-    s = s.to_size
-    if s.width/s.height > size.width/size.height
-      s = CGSize.new((s.height/size.height * size.width).to_i, s.height)
-    else
-      s = CGSize.new(s.width, (s.width/size.width * size.height).to_i)
-    end
-
-    scale_to_size(s)
+    scale_to_size(size.scale_to_fit(s))
   end
 
   #Preserve aspect ratio while scaling. E.g if s = (612,612), the shorter side will be 612 and the shorter side will be at least 612
   def scale_aspect_to_minimum_size(s)
-    s = s.to_size
-    if s.width/s.height > size.width/size.height
-      s = CGSize.new(s.width, (s.width/size.width * size.height).to_i)
-    else
-      s = CGSize.new((s.height/size.height * size.width).to_i, s.height)
-    end
-
-    scale_to_size(s)
+    scale_to_size(size.scale_to_fill(s))
   end
 
   #Preserve aspect ratio while scaling to fill. Part of the content may be clipped
