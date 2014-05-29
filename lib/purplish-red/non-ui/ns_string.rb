@@ -28,7 +28,7 @@ class NSString
     to_btn_template_rendering_mode(true)
   end
 
-  def is_digits_only?
+  def digits_only?
     split('').find {|e| e < '0' || e > '9'}.nil?
   end
 end

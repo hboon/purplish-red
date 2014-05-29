@@ -9,7 +9,7 @@ class NSDate
     NSCalendar.currentCalendar.dateFromComponents(dc)
   end
 
-  def self.is_leap_year?(year)
+  def self.leap_year?(year)
     return false if year % 4 != 0
     return true if year % 100 != 0
     year % 400 == 0
@@ -23,7 +23,7 @@ class NSDate
     when 4, 6, 9, 11
       return 30
     when 2
-      return is_leap_year?(year)? 29: 28
+      return leap_year?(year)? 29: 28
     else
       #NSAssert(NO, @" Invalid month %d", month)
       return 0
