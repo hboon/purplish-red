@@ -9,3 +9,31 @@ module CanReturnSizeUsingCount
     count
   end
 end
+
+class NSData
+  include CanReturnSizeUsingLength
+end
+
+class MPMediaItemCollection
+  include CanReturnSizeUsingCount
+end
+
+class NSHashTable
+  include CanReturnSizeUsingCount
+end
+
+class NSMapTable
+  include CanReturnSizeUsingCount
+end
+
+class NSOrderedSet
+  include CanReturnSizeUsingCount
+end
+
+class NSPointerArray
+  include CanReturnSizeUsingCount
+end
+
+class NSSet
+  include CanReturnSizeUsingCount
+end
