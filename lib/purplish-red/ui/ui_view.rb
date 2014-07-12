@@ -144,11 +144,6 @@ class UIView
     self.top = pt.y
   end
 
-  def <<(v)
-    addSubview(v)
-    self
-  end
-
   def sv
     superview
   end
