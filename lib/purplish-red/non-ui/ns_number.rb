@@ -6,4 +6,8 @@ class NSNumber
   def from_rad_to_deg
     self * 180/Math::PI
   end
+
+  def to_index_set
+    NSIndexSet.indexSetWithIndex(self)
+  end
 end

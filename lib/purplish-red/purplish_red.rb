@@ -17,3 +17,4 @@ module PurplishRed
     Kernel.const_defined?(:UIApplication)
   end
 end
+PR = PurplishRed
