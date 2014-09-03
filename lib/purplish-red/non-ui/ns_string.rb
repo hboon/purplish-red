@@ -31,4 +31,8 @@ class NSString
   def digits_only?
     split('').find {|e| e < '0' || e > '9'}.nil?
   end
+
+  def to_url
+    NSURL.URLWithString(self)
+  end
 end
