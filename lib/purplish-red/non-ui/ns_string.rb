@@ -1,6 +1,10 @@
 class NSString
   def to_img
-    UIImage.imageNamed(self)
+    if PurplishRed.ios?
+      UIImage.imageNamed(self)
+    else
+      NSImage.imageNamed(self)
+    end
   end
 
   def to_imgt
