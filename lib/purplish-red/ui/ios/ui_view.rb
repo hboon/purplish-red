@@ -1,5 +1,7 @@
 #Stuff I copied from MOCommon
 class UIView
+  include View
+
   def top
     frame.origin.y
   end
