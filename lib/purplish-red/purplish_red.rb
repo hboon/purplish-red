@@ -24,5 +24,12 @@ module PurplishRed
       }))
     end
   end
+
+  def app_version
+    version = NSBundle.mainBundle.objectForInfoDictionaryKey('CFBundleShortVersionString')
+    return version if version && !version.empty?
+    buildVersion = NSBundle.mainBundle.objectForInfoDictionaryKey('CFBundleVersion')
+    buildVersion
+  end
 end
 PR = PurplishRed
