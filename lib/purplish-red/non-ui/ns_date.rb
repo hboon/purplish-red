@@ -54,4 +54,9 @@ class NSDate
     s = day_month_year
     format('%.4d%.2d%.2d', s[2], s[1], s[0])
   end
+
+  def to_time
+    components = NSCalendar.currentCalendar.components(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit, fromDate:self)
+    Time.local(components.year, components.month, components.day, components.hour, components.minute, components.second)
+  end
 end
