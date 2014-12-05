@@ -1,4 +1,7 @@
 module PurplishRed
+  SECONDS_IN_ONE_MONTH = 60*60*24*30
+  SECONDS_IN_ONE_YEAR = SECONDS_IN_ONE_MONTH*12
+
   def self.app_resumed=(b)
     @app_resumed = b
   end
