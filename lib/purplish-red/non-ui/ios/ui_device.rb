@@ -1,5 +1,10 @@
 class UIDevice
+  #Use #tall? instead
   def iphone5?
+    UIScreen.mainScreen.bounds.size.height > 480
+  end
+
+  def tall?
     UIScreen.mainScreen.bounds.size.height > 480
   end
 
