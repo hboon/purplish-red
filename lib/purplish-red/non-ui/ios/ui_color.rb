@@ -4,16 +4,17 @@ class UIColor
   end
 
   def components
+    #Can't use Pointer.new(:float). 32-bit and 64-bit differences. https://hipbyte.freshdesk.com/support/tickets/2595
     if grayscale_colorspace?
-      white = Pointer.new(:float)
-      alpha = Pointer.new(:float)
+      white = Pointer.new(CGSize.type[/(f|d)/])
+      alpha = Pointer.new(CGSize.type[/(f|d)/])
       getWhite(white, alpha:alpha)
       [white[0], alpha[0]]
     else
-      red = Pointer.new(:float)
-      green = Pointer.new(:float)
-      blue = Pointer.new(:float)
-      alpha = Pointer.new(:float)
+      red = Pointer.new(CGSize.type[/(f|d)/])
+      green = Pointer.new(CGSize.type[/(f|d)/])
+      blue = Pointer.new(CGSize.type[/(f|d)/])
+      alpha = Pointer.new(CGSize.type[/(f|d)/])
       getRed(red, green:green, blue:blue, alpha:alpha)
       [red[0], green[0], blue[0], alpha[0]]
     end
