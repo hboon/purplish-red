@@ -62,10 +62,6 @@ module CocoaView
     #self.left = pt.x
     #self.top = pt.y
   #end
-
-  def sv
-    superview
-  end
 end
 
 class NSView

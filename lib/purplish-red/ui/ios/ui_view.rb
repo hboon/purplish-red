@@ -49,8 +49,4 @@ class UIView
     self.left = pt.x
     self.top = pt.y
   end
-
-  def sv
-    superview
-  end
 end
