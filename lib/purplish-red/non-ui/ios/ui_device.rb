@@ -8,6 +8,10 @@ class UIDevice
     UIScreen.mainScreen.bounds.size.height > 480
   end
 
+  def wide?
+    UIScreen.mainScreen.bounds.size.width > 320
+  end
+
   def simulator?
     return UIDevice.currentDevice.name.include? 'Simulator'
   end
