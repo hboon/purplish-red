@@ -7,3 +7,5 @@ Motion::Project::App.setup do |app|
     app.files.unshift(file)
   end
 end
+
+require 'weak_attr_accessor'

@@ -13,6 +13,7 @@ Gem::Specification.new do |gem|
   gem.homepage = 'https://github.com/hboon/purplish-red'
   gem.email = 'hboon@motionobj.com'
 
+  gem.add_dependency "weak_attr_accessor", "~> 0.0.2"
   gem.files       = `git ls-files`.split($\)
   gem.require_paths = ['lib']
   #gem.test_files  = gem.files.grep(%r{^spec/})
