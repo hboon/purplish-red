@@ -39,4 +39,22 @@ class NSString
   def to_url
     NSURL.URLWithString(self)
   end
+
+  def escape_xml_entities
+    if PR.osx?
+      #CFXMLCreateStringByEscapingEntities is only available for OS X
+      return CFXMLCreateStringByEscapingEntities(nil, self, nil)
+    else
+      s = self
+      mapping = {'&' => "&amp;",
+                 '"' => "&quot;",
+                 '\'' => "&#39;",
+                 '>' => "&gt;",
+                 '<' => "&lt;"}
+      mapping.each do |k, v|
+        s = s.stringByReplacingOccurrencesOfString(k, withString:v)
+      end
+      s
+    end
+  end
 end
