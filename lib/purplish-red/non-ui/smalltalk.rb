@@ -4,12 +4,12 @@ class Object
   end
 
   def if_nil(&block)
-    #do nothing
+    self
   end
 end
 class NilClass
   def if_not_nil(&block)
-    #do nothing
+    self
   end
 
   def if_nil(&block)
