@@ -1,4 +1,4 @@
-class CGSize
+module CanScale
   def scale_to_fit(s)
     s = s.to_size
     if s.width/s.height > width/height

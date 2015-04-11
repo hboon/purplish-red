@@ -14,10 +14,6 @@ class NSData
   include CanReturnSizeUsingLength
 end
 
-class MPMediaItemCollection
-  include CanReturnSizeUsingCount
-end
-
 class NSHashTable
   include CanReturnSizeUsingCount
 end
