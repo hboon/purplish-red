@@ -1,7 +1,5 @@
 class CGPoint
-  def /(other)
-    self.x /= other
-    self.y /= other
-    self
+  def /(aNumber)
+    CGPoint.new(x/aNumber, y/aNumber)
   end
 end
