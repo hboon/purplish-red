@@ -1,6 +1,10 @@
 #Mostly copied from MOCommon
 
 class NSDate
+  ONE_MINUTE = 60
+  ONE_HOUR = 60*60
+  ONE_DAY = 60*60*24
+
   def self.from_day_month_year(d, m, y)
     dc = NSDateComponents.new
     dc.day = d
