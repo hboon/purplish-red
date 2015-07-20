@@ -40,6 +40,10 @@ class NSString
     NSURL.URLWithString(self)
   end
 
+  def to_url_request
+    self.to_url.to_url_request
+  end
+
   def escape_xml_entities
     if PR.osx?
       #CFXMLCreateStringByEscapingEntities is only available for OS X
@@ -55,6 +59,24 @@ class NSString
         s = s.stringByReplacingOccurrencesOfString(k, withString:v)
       end
       s
+    end
+  end
+
+  def append_query_parameter(key, value)
+    if include? '?'
+      result = "#{self}&#{key}=#{value}"
+    else
+      result = "#{self}?#{key}=#{value}"
+    end
+  end
+
+  def append_query_parameters(aDictionary)
+    return self if aDictionary.empty?
+    parameters = aDictionary.map {|k,v| "#{k}=#{v}"}.join('&')
+    if include? '?'
+      "#{self}&#{parameters}"
+    else
+      "#{self}?#{parameters}"
     end
   end
 end
