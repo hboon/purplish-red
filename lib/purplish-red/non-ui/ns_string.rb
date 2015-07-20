@@ -45,7 +45,8 @@ class NSString
   end
 
   def path_in_main_bundle
-    name, extension = split('.')
+    name = File.basename(self, '.*')
+    extension = File.extname(self).delete('.')
     NSBundle.mainBundle.pathForResource(name, ofType:extension)
   end
 
