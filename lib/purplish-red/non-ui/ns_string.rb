@@ -44,6 +44,11 @@ class NSString
     self.to_url.to_url_request
   end
 
+  def path_in_main_bundle
+    name, extension = split('.')
+    NSBundle.mainBundle.pathForResource(name, ofType:extension)
+  end
+
   def escape_xml_entities
     if PR.osx?
       #CFXMLCreateStringByEscapingEntities is only available for OS X

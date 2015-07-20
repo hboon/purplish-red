@@ -96,6 +96,12 @@ module View
     self.height = f if height < f
   end
 
+  def reload_constraints(&block)
+		removeConstraints(constraints)
+    block.call
+		setNeedsUpdateConstraints(true)
+  end
+
   #For debugging
   def hierarchy_description
     hierarchy = []
