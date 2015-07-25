@@ -2,11 +2,19 @@ module CanReturnSizeUsingLength
   def size
     length
   end
+
+  def empty?
+    size == 0
+  end
 end
 
 module CanReturnSizeUsingCount
   def size
     count
+  end
+
+  def empty?
+    size == 0
   end
 end
 
