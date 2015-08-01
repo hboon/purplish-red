@@ -1,5 +1,6 @@
 #Stuff I copied from MOCommon, some new
 class UIImage
+  include Image
   M_PI = 3.14159265358979323846264338327950288
 
   def self.size_at_path(s)
@@ -27,14 +28,6 @@ class UIImage
 
   def to_imgv
     UIImageView.alloc.initWithImage(self)
-  end
-
-  def width
-    size.width
-  end
-
-  def height
-    size.height
   end
 
   def scale_aspect_to_size(size)
