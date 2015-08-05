@@ -13,6 +13,17 @@ class NSDate
     NSCalendar.currentCalendar.dateFromComponents(dc)
   end
 
+  def self.from_day_month_year_hour_minute_second(d, m, y, h, mi, s)
+    dc = NSDateComponents.new
+    dc.day = d
+    dc.month = m
+    dc.year = y
+    dc.hour = h
+    dc.minute = mi
+    dc.second = s
+    NSCalendar.currentCalendar.dateFromComponents(dc)
+  end
+
   def self.leap_year?(year)
     return false if year % 4 != 0
     return true if year % 100 != 0
@@ -32,6 +43,14 @@ class NSDate
       #NSAssert(NO, @" Invalid month %d", month)
       return 0
     end
+  end
+
+  def self.today
+    NSDate.date.to_date_only
+  end
+
+  def self.yesterday
+    NSDate.date.yesterday.to_date_only
   end
 
   def yesterday_exactly
@@ -62,5 +81,10 @@ class NSDate
   def to_time
     components = NSCalendar.currentCalendar.components(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit, fromDate:self)
     Time.local(components.year, components.month, components.day, components.hour, components.minute, components.second)
+  end
+
+  def to_date_only
+    d_m_y = day_month_year
+    NSDate.from_day_month_year(d_m_y[0], d_m_y[1], d_m_y[2])
   end
 end
