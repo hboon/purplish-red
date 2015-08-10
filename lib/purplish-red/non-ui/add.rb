@@ -13,10 +13,6 @@ class NSAutoreleasePool
   include CanAddObject
 end
 
-class NSCountedSet 
-  include CanAddObject
-end
-
 class NSHashTable 
   include CanAddObject
 end
