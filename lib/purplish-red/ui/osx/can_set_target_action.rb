@@ -1,6 +1,7 @@
 module CanSetTargetAction
   def on_action(&block)
     @callback = block
+    @callback.weak!
     self.target = @callback
     if @callback
       if @callback.arity == 0
