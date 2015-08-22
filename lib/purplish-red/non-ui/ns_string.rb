@@ -85,4 +85,18 @@ class NSString
       "#{self}?#{parameters}"
     end
   end
+
+  def ensure_directory_exist(&block)
+    if NSFileManager.defaultManager.fileExistsAtPath(self, isDirectory:nil)
+      block.call(true, nil) if block
+      return
+    end
+    error = Pointer.new(:object)
+    NSFileManager.defaultManager.createDirectoryAtPath(self, withIntermediateDirectories:true, attributes:nil, error:error)
+    if error[0]
+      block.call(false, error[0]) if block
+    else
+      block.call(false, nil) if block
+    end
+  end
 end
