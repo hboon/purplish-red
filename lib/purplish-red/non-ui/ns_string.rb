@@ -99,4 +99,10 @@ class NSString
       block.call(false, nil) if block
     end
   end
+
+  def existing_file_path?
+    is_directory = Pointer.new(:bool)
+    exists = NSFileManager.defaultManager.fileExistsAtPath(self, isDirectory:is_directory)
+    exists && !is_directory[0]
+  end
 end
