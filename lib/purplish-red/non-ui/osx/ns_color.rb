@@ -1,24 +1,23 @@
 class NSColor
   def grayscale_colorspace?
-    #kkk how?
-    #CGColorGetNumberOfComponents(self.CGColor) == 2
-    false
+    numberOfComponents == 2
   end
 
-  def components
+  def components(aColorSpace=NSColorSpace.sRGBColorSpace)
     #Can't use Pointer.new(:float). 32-bit and 64-bit differences. https://hipbyte.freshdesk.com/support/tickets/2595
-    if grayscale_colorspace?
+    c = colorUsingColorSpace(aColorSpace)
+    if c.grayscale_colorspace?
       #kkk CGXXX, can they, do they need to be replaced?
       white = Pointer.new(CGSize.type[/(f|d)/])
       alpha = Pointer.new(CGSize.type[/(f|d)/])
-      getWhite(white, alpha:alpha)
+      c.getWhite(white, alpha:alpha)
       [white[0], alpha[0]]
     else
       red = Pointer.new(CGSize.type[/(f|d)/])
       green = Pointer.new(CGSize.type[/(f|d)/])
       blue = Pointer.new(CGSize.type[/(f|d)/])
       alpha = Pointer.new(CGSize.type[/(f|d)/])
-      getRed(red, green:green, blue:blue, alpha:alpha)
+      c.getRed(red, green:green, blue:blue, alpha:alpha)
       [red[0], green[0], blue[0], alpha[0]]
     end
   end
