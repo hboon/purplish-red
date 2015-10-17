@@ -56,13 +56,6 @@ class NSPointerArray
   end
 end
 
-class CALayer
-  def <<(obj)
-    addSublayer(obj)
-    self
-  end
-end
-
 class NSOperationQueue
   def <<(obj)
     addOperation(obj)
