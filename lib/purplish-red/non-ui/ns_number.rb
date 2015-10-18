@@ -10,4 +10,12 @@ class NSNumber
   def to_index_set
     NSIndexSet.indexSetWithIndex(self)
   end
+
+  def at_least(aNumber)
+    [self, aNumber].max
+  end
+
+  def at_most(aNumber)
+    [self, aNumber].min
+  end
 end
