@@ -40,6 +40,10 @@ class NSString
     NSURL.URLWithString(self)
   end
 
+  def to_file_url
+    NSURL.fileURLWithPath(self)
+  end
+
   def to_url_request
     self.to_url.to_url_request
   end
