@@ -109,4 +109,8 @@ class NSString
     exists = NSFileManager.defaultManager.fileExistsAtPath(self, isDirectory:is_directory)
     exists && !is_directory[0]
   end
+
+  def remove_item_at_path(error_ptr=nil)
+    NSFileManager.defaultManager.removeItemAtPath(self, error:error_ptr)
+  end
 end
