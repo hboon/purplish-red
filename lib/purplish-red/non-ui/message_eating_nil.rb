@@ -17,9 +17,16 @@ class MessageEatingNil
     @method_missing_block
   end
 
+  def self.nil
+    Dispatch.once { @instance ||= new }
+    @instance
+  end
+
   def method_missing(m, *args, &block)
     if self.class.log_method_missing?
       self.class.method_missing_block.call(m, *args)
+    else
+      self
     end
   end
 end
