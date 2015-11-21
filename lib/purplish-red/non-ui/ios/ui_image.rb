@@ -243,4 +243,8 @@ class UIImage
     img = UIImage.imageWithCGImage(img_ref, scale:UIScreen.mainScreen.scale, orientation:UIImageOrientationUp)
     img
   end
+
+  def square?
+    size.square?
+  end
 end
