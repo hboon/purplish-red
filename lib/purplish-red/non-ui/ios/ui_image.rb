@@ -247,4 +247,13 @@ class UIImage
   def square?
     size.square?
   end
+
+  def with_insets(anEdgeInsets, bitmap_info=nil)
+    img_ref = self.CGImage
+    bitmap_info = CGImageGetBitmapInfo(img_ref) unless bitmap_info
+    context = CGBitmapContextCreate(nil, (width+anEdgeInsets.left+anEdgeInsets.right)*scale, (height+anEdgeInsets.top+anEdgeInsets.bottom)*scale, CGImageGetBitsPerComponent(img_ref), 0, CGImageGetColorSpace(img_ref), bitmap_info)
+    CGContextDrawImage(context, CGRectMake(anEdgeInsets.left*scale, anEdgeInsets.top*scale, width*scale, height*scale), img_ref)
+    copy = CGBitmapContextCreateImage(context)
+    UIImage.imageWithCGImage(copy, scale:scale, orientation:imageOrientation)
+  end
 end
