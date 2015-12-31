@@ -1,4 +1,6 @@
 class UIView
+  include View
+
   def bring_to_front
     superview.bringSubviewToFront(self)
   end
