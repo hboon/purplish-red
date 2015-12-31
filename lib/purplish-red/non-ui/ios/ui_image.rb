@@ -1,6 +1,5 @@
 #Stuff I copied from MOCommon, some new
 class UIImage
-  include Image
   M_PI = 3.14159265358979323846264338327950288
 
   def self.size_at_path(s)

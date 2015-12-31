@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.email = 'hboon@motionobj.com'
 
   gem.add_dependency "weak_attr_accessor", "~> 0.0.2"
-  gem.add_dependency "purplish-frame"
+  gem.add_dependency "purplish-frame", "~> 0.0.6"
   gem.files       = `git ls-files`.split($\)
   gem.require_paths = ['lib']
   #gem.test_files  = gem.files.grep(%r{^spec/})
