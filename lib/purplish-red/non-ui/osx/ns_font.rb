@@ -1,6 +1,6 @@
 class NSFont
   #Returns nil if not found
-  def bold
-    NSFontManager.sharedFontManager.fontWithFamily(familyName, traits:NSBoldFontMask, weight:0, size:pointSize)
+  def condensed(weight=0)
+    NSFontManager.sharedFontManager.fontWithFamily(familyName, traits:NSCondensedFontMask, weight:weight, size:pointSize)
   end
 end
