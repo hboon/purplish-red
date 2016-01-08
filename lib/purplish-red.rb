@@ -19,3 +19,4 @@ Motion::Project::App.setup do |app|
 end
 
 require 'weak_attr_accessor'
+require 'purplish-frame'
