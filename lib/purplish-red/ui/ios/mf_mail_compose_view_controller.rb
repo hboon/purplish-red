@@ -20,6 +20,7 @@ module MOCommon
 
     def mailComposeController(vc, didFinishWithResult:result, error:error)
       on_finish.call(result, error)
+      vc.dismissViewControllerAnimated(true, completion:nil)
       send(:autorelease)
     end
   end
