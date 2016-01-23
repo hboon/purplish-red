@@ -1,3 +1,6 @@
+#workaround1 Sometimes UIImage -imageWithCGImage:scale:orientation doesn't work with `Objective-C stub for message `imageWithCGImage:scale:orientation:' type `@@:@dq' not precompiled. Make sure you properly link with the framework or library that defines this message.` It's inconsistent. Some projects work, some don't. No idea how to fix it otherwise. Doesn't slow down startup significantly.
+UIImage.imageWithCGImage(UIImage.new.CGImage, scale:1, orientation:UIImageOrientationLeft)
+
 #Stuff I copied from MOCommon, some new
 class UIImage
   M_PI = 3.14159265358979323846264338327950288
