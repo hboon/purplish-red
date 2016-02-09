@@ -113,4 +113,8 @@ class NSString
   def remove_item_at_path(error_ptr=nil)
     NSFileManager.defaultManager.removeItemAtPath(self, error:error_ptr)
   end
+
+  def localized(value=nil, table=nil)
+    NSBundle.mainBundle.localizedStringForKey(self, value:value, table:table)
+  end
 end
