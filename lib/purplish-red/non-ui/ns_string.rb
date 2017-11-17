@@ -117,4 +117,8 @@ class NSString
   def localized(value=nil, table=nil)
     NSBundle.mainBundle.localizedStringForKey(self, value:value, table:table)
   end
+
+  def to_attributed_s
+    NSAttributedString.alloc.initWithString(self)
+  end
 end
