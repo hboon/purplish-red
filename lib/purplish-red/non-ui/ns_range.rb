@@ -6,4 +6,8 @@ class NSRange
   def location_after
     location + length
   end
+
+  def empty?
+    length == 0
+  end
 end
