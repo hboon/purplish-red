@@ -7,4 +7,8 @@ class CGRect
     pt = origin.translate(point)
     CGRectMake(pt.x, pt.y, size.width, size.height)
   end
+
+  def center
+    CGPointMake(CGRectGetMidX(self), CGRectGetMidY(self))
+  end
 end
