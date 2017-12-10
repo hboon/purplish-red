@@ -6,4 +6,8 @@ class CGPoint
   def translate(point)
     CGPointMake(x + point.x, y + point.y)
   end
+
+  def inside_rect?(rect)
+    CGRectContainsPoint(rect, self)
+  end
 end

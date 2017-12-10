@@ -11,4 +11,16 @@ class CGRect
   def center
     CGPointMake(CGRectGetMidX(self), CGRectGetMidY(self))
   end
+
+  def contains?(rect_or_point)
+    rect_or_point.inside_rect? self
+  end
+
+  def inside_rect?(rect)
+    CGRectContainsRect(rect, self)
+  end
+
+  def inset(x, y=x)
+    CGRectInset(self, x, y)
+  end
 end
