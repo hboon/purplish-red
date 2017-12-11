@@ -4,6 +4,7 @@ class CGPoint
   end
 
   def translate(point)
+    point = point.to_point
     CGPointMake(x + point.x, y + point.y)
   end
 

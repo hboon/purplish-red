@@ -4,7 +4,7 @@ class CGRect
   end
 
   def translate(point)
-    pt = origin.translate(point)
+    pt = origin.translate(point.to_point)
     CGRectMake(pt.x, pt.y, size.width, size.height)
   end
 
