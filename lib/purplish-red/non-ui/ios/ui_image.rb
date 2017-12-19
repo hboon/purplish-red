@@ -28,6 +28,10 @@ class UIImage
     b
   end
 
+  def to_img
+    self
+  end
+
   def to_imgv
     UIImageView.alloc.initWithImage(self)
   end
