@@ -23,4 +23,8 @@ class CGRect
   def inset(x, y=x)
     CGRectInset(self, x, y)
   end
+
+  def intersects?(rect)
+    CGRectIntersectsRect(self, rect)
+  end
 end
