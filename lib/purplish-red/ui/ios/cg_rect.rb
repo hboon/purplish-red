@@ -27,4 +27,9 @@ class CGRect
   def intersects?(rect)
     CGRectIntersectsRect(self, rect)
   end
+
+  def union(rect)
+    return self unless rect
+    CGRectUnion(self, rect)
+  end
 end
