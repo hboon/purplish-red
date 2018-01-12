@@ -210,6 +210,7 @@ class UIImage
     btn.center_x = parent.width/2
     btn.center_y = parent.height/2
     parent.addSubview(btn)
+    btn
   end
 
   def save_to_album_named(album_name, meta_data:meta_data)
