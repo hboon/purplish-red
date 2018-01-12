@@ -205,7 +205,7 @@ class UIImage
     end
     btn = img.to_btn
     btn.addTarget(btn, action:'removeFromSuperview', forControlEvents:UIControlEventTouchUpInside)
-    parent = App.delegate.window
+    parent = UIApplication.sharedApplication.delegate.window
     btn.backgroundColor = UIColor.blackColor
     btn.center_x = parent.width/2
     btn.center_y = parent.height/2
