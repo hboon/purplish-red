@@ -26,3 +26,4 @@ end
 
 require 'weak_attr_accessor'
 require 'purplish-frame'
+require 'purplish-accessors'

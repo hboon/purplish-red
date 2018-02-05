@@ -15,6 +15,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "weak_attr_accessor", "~> 0.0.2"
   gem.add_dependency "purplish-frame", "~> 0.0.8"
+  gem.add_dependency "purplish-accessors", "~> 0.0.1"
   gem.files       = `git ls-files`.split($\)
   gem.require_paths = ['lib']
   #gem.test_files  = gem.files.grep(%r{^spec/})
