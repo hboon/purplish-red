@@ -10,4 +10,8 @@ class NSURL
   def file_exists?
     NSFileManager.defaultManager.fileExistsAtPath(path)
   end
+
+  def to_data
+    NSData.dataWithContentsOfURL(self)
+  end
 end
